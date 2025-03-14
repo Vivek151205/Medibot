@@ -8,7 +8,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain_core.prompts import PromptTemplate
 from langchain_community.vectorstores import FAISS
 HF_TOKEN=os.environ.get("HF_TOKEN")
-HUGGINGFACE_REPO_ID="deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+HUGGINGFACE_REPO_ID="mistralai/Mistral-7B-Instruct-v0.3"
 DB_FAISS_PATH="vectorstore/db_faiss"
 
 @st.cache_resource #loading the data into cache 
@@ -68,7 +68,7 @@ def main():
             result=response["result"]
             source_documents=response["source_documents"]
 
-            result_to_show=result+"\n\nSource Documents: \n"+str(source_documents)
+            result_to_show=result+"\n\nSource Documents:The Gale Encyclopedia of Medicine"
             st.chat_message('assistant').markdown(result_to_show)
             st.session_state.messages.append({'role':'assistant', 'content': result_to_show})
         except Exception as e:
