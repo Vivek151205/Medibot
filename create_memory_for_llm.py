@@ -38,6 +38,6 @@ def get_embedding_model():
     return embedding_model
 embedding_model=get_embedding_model()
 
-DB_FAISS_PATH="vectorstore/db_faiss"
+DB_FAISS_PATH="vectorstore/db_faiss_updated"
 db=FAISS.from_documents(text_chunks,embedding_model)
 db.save_local(DB_FAISS_PATH)
